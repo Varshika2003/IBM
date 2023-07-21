@@ -1,0 +1,10 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+#loading dataset
+df=pd.read_csv("/content/SampleSuperstore.csv")
+df.head()
+df.drop(columns="Postal Code")
+loss_df=df[df['Profit'] < 0] 
+loss_df
+df.groupby("Ship Mode")["Sales"].sum().plot.bar()
